@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+y_not_access_sale_type,y_not_access_sale_type,model_sale_type,base.group_erp_manager,1,1,1,1
+y_not_access_sale_type,y_not_access_sale_type,model_sale_type,base.group_user,1,1,1,0

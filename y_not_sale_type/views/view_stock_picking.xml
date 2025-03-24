@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_stock_picking_form_inherit_y_not" model="ir.ui.view">
+        <field name="name">view.stock.picking.form.inherit.y.not</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.view_picking_form"/>
+        <field name="arch" type="xml">
+            <field name="origin" position="after">
+                <field name="sale_type_id"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_stock_picking_tree_inherit_y_not" model="ir.ui.view">
+        <field name="name">view.stock.picking.tree.inherit.y.not</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="stock.vpicktree"/>
+        <field name="arch" type="xml">
+            <field name="origin" position="after">
+                <field name="sale_type_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>
