@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_sale_order_form_inherit_y_not" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit.y.not</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="payment_term_id" position="after">
+                <field name="sale_type_id" readonly="state in ['done', 'sale']"/>
+                <field name="total_order_qty"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_sale_quotation_tree_inherit_y_not" model="ir.ui.view">
+        <field name="name">sale.quotation.tree.inherit.y.not</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="sale_type_id" readonly="state in ['done', 'sale']"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_sale_order_tree_inherit_y_not" model="ir.ui.view">
+        <field name="name">sale.order.tree.inherit.y.not</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_tree"/>
+        <field name="arch" type="xml">
+            <field name="user_id" position="after">
+                <field name="sale_type_id" readonly="state in ['done', 'sale']"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_sale_order_search_inherit_y_not" model="ir.ui.view">
+        <field name="name">sale.order.search.inherit.y.not</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <field name="sale_type_id"/>
+                <filter name="by_sale_type" string="Sale Type" context="{'group_by':'sale_type_id'}"/>
+                <filter name="sale_type_filter" string="Sale Type" domain="[('sale_type_id','!=', False)]"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_sale_order_pivot_inherit_y_not" model="ir.ui.view">
+        <field name="name">sale.order.pivot.inherit.y.not</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sale_order_pivot"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='date_order']" position="after">
+                <field name="sale_type_id" type="row"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
