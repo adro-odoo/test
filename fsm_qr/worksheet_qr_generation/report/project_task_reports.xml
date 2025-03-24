@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_report_worksheet_template" model="ir.actions.report">
+            <field name="name">Worksheet Template</field>
+            <field name="model">project.task</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">worksheet_qr_generation.report_worksheet_template_adka</field>
+            <field name="report_file">worksheet_qr_generation.report_worksheet_template_adka</field>
+            <field name="binding_model_id" ref="project.model_project_task"/>
+            <field name="binding_type">report</field>
+            <field name="print_report_name">'WT'</field>
+        </record>
+    </data>
+</odoo>
