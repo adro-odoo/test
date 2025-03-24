@@ -7,7 +7,7 @@ from odoo import api, fields, models
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
-    sale_type_id = fields.Many2one(
+    sale_type_id_adro = fields.Many2one(
         'sale.type', string='Sales Type', compute='_compute_sale_type', store=True)
     total_order_qty = fields.Char(string="Total Order Quantity")
 
