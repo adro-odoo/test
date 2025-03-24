@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_mrp_production_wizard_split" model="ir.actions.server">
+        <field name="name">[mrp]</field>
+        <field name="model_id" ref="mrp.model_mrp_production"/>
+        <field name="state">code</field>
+        <field name="code">
+lines = env['mrp.production'].search([])
+for line in lines:
+    date_str = line.date_start.strftime('%Y-%m-%d')
+    new_time_str = "15:30:00" if line.x_studio_time else "03:30:00"
+    new_date_str = f"{date_str} {new_time_str}"
+    line.write({'date_start': new_date_str})
+        </field>
+    </record>
+
+    <record id="automation_action_model_mrp_production_wizard_split" model="base.automation">
+        <field name="name">[mrp]</field>
+        <field name="model_id" ref="mrp.model_mrp_production"/>
+        <field name="trigger">on_create_or_write</field>
+        <field name="action_server_ids" eval="[Command.link(ref('dart_sra.action_mrp_production_wizard_split'))]"/>
+    </record>
+
+    <!-- base automation to change x_time initially on creating split production line -->
+    <!-- base automation to trigger wizard split production line time change -->
+</odoo>

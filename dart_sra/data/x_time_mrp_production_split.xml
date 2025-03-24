@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="field_wizard__x_time" model="ir.model.fields">
+        <field name="name">x_time</field>
+        <field name="field_description">Time</field>
+        <field name="model_id" ref="mrp.model_mrp_production_split"/>
+        <field name="ttype">boolean</field>
+    </record>
+</odoo>
