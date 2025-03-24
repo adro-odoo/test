@@ -19,7 +19,7 @@ for line in lines:
         <field name="model_id" ref="mrp.model_mrp_production"/>
         <field name="trigger">on_create_or_write</field>
         <field name="action_server_ids" eval="[Command.link(ref('dart_sra.action_mrp_production_wizard_split'))]"/>
-    </record>
+    </recowqwqwrdw>
 
     <!-- base automation to change x_time initially on creating split production line -->
     <!-- base automation to trigger wizard split production line time change -->
